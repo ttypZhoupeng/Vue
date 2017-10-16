@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>v-on事件</title>
+    <script src="https://cdn.bootcss.com/vue/2.4.4/vue.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        {{arr}}
+        <button @click="show">show</button>
+        <button @mouseover="show">鼠标经过</button>
+        <button @dblclick="show">双击</button>
+        <button @click="add(12345)">add</button>
+    </div>
+    
+
+    <script>
+        let vm = new Vue({
+            el:"#app",
+            data:{
+                arr:['12','22','33','3333']
+            },
+            methods:{
+                show:function(){
+                    console.log("调用了show的方法");
+                },
+                add(data){
+                    this.arr.push(data)
+                }
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.bootcss.com/vue/2.4.4/vue.js"></script>    
+</head>
+<body>
+    <div id="app1">
+        <zp></zp>
+    </div>
+
+    <div id="app2">
+        <zp></zp>
+    </div>
+
+
+    <script>
+        Vue.component('zp',{
+            data:function(){
+                return {
+                    show:false
+                }
+            },
+            template:`
+                <div>
+                    <h1>zhou peng</h1>
+                </div>
+            `
+        })
+
+        new Vue({
+            el:'#app1'
+        })
+
+        new Vue({
+            el:'#app2'
+        })
+    </script>
+</body>
+
+</html>

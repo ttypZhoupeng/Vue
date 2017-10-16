@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>计算属性 vs 监听属性</title>
+    <script src="https://cdn.bootcss.com/vue/2.4.4/vue.min.js"></script>    
+</head>
+<body>
+    
+    <div id="demo">{{fullName}}</div>
+
+    <script>
+        var vm = new Vue({
+            el:'#demo',
+            data:{
+                firstName:'Zhou',
+                lastName:'Peng'
+            },
+            computed:{
+                fullName:function(){
+                    return this.firstName + '' +this.lastName
+                }
+            }
+        })
+    </script>
+</body>
+</html>

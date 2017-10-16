@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>全局组件</title>
+    <script src="https://cdn.bootcss.com/vue/2.4.4/vue.js"></script>        
+</head>
+<body>
+    
+    <ol id="app">
+        <todo-item></todo-item>
+    </ol>
+    
+    <div id="app2">
+        <ol>
+            <todo-item-b
+                v-for="item in groceryList"
+                v-bind:todo="item"
+                v-bind:key="item.id"
+            ></todo-item-b>
+        </ol>
+    </div>
+
+    <script>
+        Vue.component('todo-item',{
+            template:'<h3>这是一个待办项</h3>'
+        })
+
+        new Vue({
+            el:"#app"
+        })
+
+
+        Vue.component('todo-item-b',{
+            props:['todo'],
+            template:`<li>{{ todo.text }}</li>`
+        })
+
+        var app2 = new Vue({
+            el:'#app2',
+            data:{
+                groceryList:[
+                    {id:0,text:'苹果'},
+                    {id:1,text:'凤梨'},
+                    {id:2,text:'橘子'},
+                ]
+            }
+        })
+    </script>
+</body>
+</html>

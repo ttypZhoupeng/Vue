@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>插值</title>
+    <script src="https://cdn.bootcss.com/vue/2.4.4/vue.js"></script>
+
+</head>
+
+<body>
+    <div id="app">
+        {{ num > 5 ? "yes" : "no"}}
+        <!-- 这些表达式会在所属 Vue 实例的
+            数据作用域下作为 JavaScript 被解析。
+            有个限制就是，每个绑定都只能包含单个
+            表达式，所以下面的例子不会生效。 -->
+        <!-- {{ 
+            if(num>5){
+                console.log("yes")
+            }else{
+                console.log("no")
+            } 
+        }} -->
+        <div v-text="tpl"></div>
+        <div v-html="tpl"></div>
+        <p v-once>这个内容将不变：{{msg}}</p>
+        <p>这个内容可以改变：{{msg}}</p>
+    </div>
+
+</body>
+<script>
+    let vm = new Vue({
+        el: "#app",
+        data: {
+            msg: 'zhoupeng',
+            num: 4,
+            tpl: '<h1> hello stark </h1>'
+        }
+    })
+</script>
+
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>生命周期</title>
+    <script src="https://cdn.bootcss.com/vue/2.4.4/vue.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>    
+</head>
+<body>
+    
+    <div id="app">
+        {{msg}}
+        <button id="btn">点我</button>
+        <button onclick="change()">更新</button>
+        <button onclick="destroy()">销毁</button>
+    </div>
+    
+    
+
+    <script>
+
+        // 在没有创建实例之前就执行了，是无效的
+        // $("#btn").click(function(){
+        //     alert("我在哪里用才合适呢")
+        // })
+
+        let vm = new Vue({
+            el:'#app',
+            data:{
+                msg:'hello peng'
+            },
+            beforeCreate(){
+                alert("创建实例前");
+            },
+            created(){
+                alert("实例创建完成后");
+                // 此时dom还没哟与挂载，在这里是无效的
+                // $("#btn").click(function(){
+                //     alert("我在哪里用才合适呢")
+                // })
+            },
+            beforeMount(){
+                alert("挂载前");
+            },
+            mounted(){
+                alert("挂载完成后");
+                $("#btn").click(function(){
+                    alert("我在哪里用才合适呢")
+                })
+            },
+            beforeUpdate(){
+                alert("更新前");
+            },
+            updated(){
+                alert("更新完成后");
+            },
+            beforeDestroy(){
+                alert("实例销毁前")
+            },
+            destroyed(){
+                alert('实例已经销毁')
+            }
+
+        })
+
+        function change(){
+            vm.msg = "ttyp";
+        }
+
+        function destroy(){
+            vm.$destroy();
+        }
+    </script>
+</body>
+</html>
