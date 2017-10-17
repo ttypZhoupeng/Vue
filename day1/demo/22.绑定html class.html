@@ -6,20 +6,80 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>绑定html class</title>
     <script src="https://cdn.bootcss.com/vue/2.4.4/vue.js"></script>                
+    <style>
+        .active{
+            color:red;
+        }
+    </style>
 </head>
 <body>
-    <div id="app">
-        <div :class="{ active: isActive, 'text-danger': hasError }"></div>
+    <!-- <div id="app1">
+        <div :class="{ active: isActive, 'text-danger': hasError }">zhoupeng</div>
+    </div> -->
+
+    <!-- 绑定一个返会对象的计算属性 -->
+    <!-- <div id="app2">
+        <div :class="classObject">zhoupeng</div>
+    </div> -->
+
+    <!-- 数组语法 -->
+    <!-- <div id="app3">
+            <div v-bind:class="[activeClass,errorClass]">zhoupeng</div>            
+    </div> -->
+
+    <!-- 三元表达式 -->
+    <div id="app4">
+        <!-- <div :class="[isActive?activeClass:'',errorClass]">zhoupeng</div> -->
+        <div :class="[{active:isActive},errorClass]">zhoupeng</div>
     </div>
 
     <script>
-       var vm = new Vue({
-           el:'#app',
-           data:{
-               isActive:true,
-               hasError:false
-           }
-       }) 
+    //    var vm = new Vue({
+    //        el:'#app1',
+    //        data:{
+    //            isActive:true,
+    //            hasError:false
+    //        }
+    //    }) 
+
+
+    // 绑定一个返会对象的计算属性
+    // var vm = new Vue({
+    //     el:'#app2',
+    //     data:{
+    //         isActive:true,
+    //         error:null
+    //     },
+    //     computed:{
+    //     classObject:function(){
+    //             return {
+    //                 active:this.isActive && !this.error,
+    //                 'text-danger':this.error && this.error.type === 'fatal'
+    //             }
+    //         }
+    //     }
+        
+    // }) 
+
+    // 数组语法
+    // var vm = new Vue({
+    //     el:'#app3',
+    //     data:{
+    //         activeClass:'active',
+    //         errorClass:'text-danger'
+    //     }
+    // })
+
+    // 三元表达式
+    var vm = new Vue({
+        el:'#app4',
+        data:{
+            isActive:true,
+            activeClass:'active',
+            errorClass:111
+        }
+    })
+
     </script>
 </body>
 </html>

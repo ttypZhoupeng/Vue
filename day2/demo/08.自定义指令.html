@@ -4,26 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>过滤</title>
+    <title>自定义指令</title>
     <script src="https://cdn.bootcss.com/vue/2.4.4/vue.js"></script>                    
 </head>
 <body>
     <div id="box">
-        {{dates | date}}
+        <div v-red>
+            {{name}}
+        </div>
     </div>
 
     <script>
-        Vue.filter('date',function(input){
-            let oDate = new Date(input);
-            return oDate.getFullYear() + '-' +(oDate.getMonth() +1) 
-            + '-' + oDate.getDate() + ' ' + oDate.getHours() + ':'
-            +oDate.getMinutes() + ':' +oDate.getSeconds();
+        Vue.directive('red',{
+            bind:function(el){
+                el.style.background = 'red';
+            }
         })
 
         let vm = new Vue({
             el:'#box',
             data:{
-                dates: Date.now()
+                name:'zhoupeng'
             }
         })
     </script>
