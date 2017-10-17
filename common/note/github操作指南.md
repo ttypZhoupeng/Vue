@@ -37,3 +37,21 @@ git clone  https://github.com/itguide/fe10.git .
 
 常用命令：
     git remote -v #查看本地的库的远程地址
+
+
+## 创建分支
+
+创建并且切换到分支
+git checkout -b 分支名字
+git branch # 如果不加分支名字，就是把分支列出来
+git branch 分支名字 # 创建分支
+git checkout 分支名字
+
+## github 私有仓库
+
+gitlab.com
+git.oschina.net
+coding.net
+gitee.com
+
+内部公司自己搭建

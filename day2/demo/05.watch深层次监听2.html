@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>watch深层次监听2</title>
+    <script src="https://cdn.bootcss.com/vue/2.4.4/vue.js"></script>            
+</head>
+<body>
+    <div id="box">
+        <p>{{a}}</p>
+        <p>{{b}}</p>
+        <p>{{obj.name}}</p>
+    </div>
+
+    <script>
+        let vm = new Vue({
+            el:'#box',
+            data:{
+                zp:'zhoupeng',
+                a:111,
+                b:222,
+                obj:{
+                    name:'zhoupeng',
+                    age:'22'
+                }
+            }
+        })
+
+        vm.$watch('obj',function(){
+            alert(this.obj.name);
+            // 不弹出，因为是一个对象，需要深度监听
+        },{
+            deep:true
+        })
+
+        document.onclick = function(){
+            vm.obj.name = 'ttyp';
+        }
+    </script>
+</body>
+</html>
