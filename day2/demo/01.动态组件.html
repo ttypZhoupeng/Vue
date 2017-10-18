@@ -12,7 +12,7 @@
         <input type="button" @click="zp='hello'" value="hello组件">
         <input type="button" @click="zp='world'" value="world组件">
         <component :is="zp">
-
+            
         </component>
 
     </div>
@@ -30,7 +30,7 @@
                 'world':{
                     template:'<h2>我是world组件</h2>'
                 }
-            },
+            }
         })
     </script>
 </body>
