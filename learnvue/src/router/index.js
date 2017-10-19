@@ -4,11 +4,10 @@ import HelloWorld from '@/components/HelloWorld'
 import zp from '@/components/zp'
 // import User from '@/components/User'
 import Hero from '@/views/hero'
-
-
+import Daily from '@/views/daily'
+import Increment from '@/components/increment'
 
 Vue.use(Router)
-
 
 export default new Router({
   routes: [
@@ -26,7 +25,18 @@ export default new Router({
       path:'/hero',
       name:'Hero',
       component:Hero
-    }
+    },
+    {
+      path:'/daily',
+      name:'daily',
+      component:Daily
+    },
+    {
+      path:'/increment',
+      name:'increment',
+      component:Increment
+    },
+    
     // {
     //   path:'/user/:id',
     //   component:User,
