@@ -6,6 +6,9 @@
 
     <router-link exact to="/">home主页</router-link>
     <router-link to="/zp">to周鹏</router-link>
+    <router-link to="/user/2/profile" tag="li">my profile</router-link>
+    <router-link to="/user/3/posts" tag="li">my posts</router-link>
+    <router-link to="/hero">hero</router-link>
 
     <router-view/>
   </div>
@@ -25,5 +28,8 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+.router-link-active{
+    color:red
 }
 </style>
